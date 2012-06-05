@@ -3,6 +3,10 @@ require "bundler"
 
 Bundler.require(:default)
 
+# Turn off buffering for logging to allow realtime logs on heroku.
+# See https://devcenter.heroku.com/articles/ruby
+$stdout.sync = true
+
 map "/" do
 	use Rack::Static, 
 		:urls => ["/css", "/js", "/img"], 
