@@ -215,23 +215,28 @@ td { vertical-align: top; }
 
 
 /* ==|== primary styles =====================================================
-   Author:
+   Author: Aidan Nagorcka-Smith (aidanns@gmail.com)
    ========================================================================== */
 
-header {
-  text-align: center;
+p {
+  margin-bottom: 18px;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 27px;
 }
 
+li {
+  font-size: 16px;
+  margin-bottom:16px;
+}
 
+.whitespace {
+  height: 30px;
+}
 
-
-
-
-
-
-
-
-
+.center-text {
+  text-align: center;
+}
 
 
 /* ==|== media queries ======================================================
