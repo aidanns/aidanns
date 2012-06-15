@@ -24,7 +24,7 @@ module Rack
     end
 
     def can_serve(path)
-      ::File.exist? @root + path
+      ::File.file? @root + path
     end
 
     def call(env)
