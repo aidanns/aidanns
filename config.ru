@@ -1,26 +1,50 @@
+# Set up the script to use bundler: http://gembundler.com/
 require "rubygems"
 require "bundler"
 
 Bundler.require(:default)
 
+# Include dependencies as per usual
+require "rack"
+require "rack/contrib"
+
 # Turn off buffering for logging to allow realtime logs on heroku.
 # See https://devcenter.heroku.com/articles/ruby
 $stdout.sync = true
 
-map "/" do
-	use Rack::Static, 
-		:urls => ["/css", "/js", "/img"], 
-		:root => Dir.pwd
+# Custom middleware to serve a static file if it's found, otherwise pass the request to the next app.
+module Rack
 
-	run lambda { |env|
+  class StaticIfFound
 
-		headers = {
-			"Content-Type" => "text/html",
-			"Cache-Control" => "public, max-age=86400"
-		}
+    def initialize(app, options)
+      @app = app
+      @static = ::Rack::Static.new(lambda { [404, {}, []] }, options)
+    end
 
-		body = File.open("#{Dir.pwd}/index.html", File::RDONLY).read
+    def can_serve(path)
+      ::File.exist? path
+    end
 
-		[200, headers, [body]]
-	}
+    def call(env)
+      path = env['PATH_INFO']
+      if can_serve(path)
+        @static.call(env)
+      else
+        @app.call(env)
+      end
+    end
+  end
 end
+
+# Default endpoint, displays the 404 page.
+notFound = Rack::NotFound.new("public/404.html")
+
+# Display any page under /public as if that was the root. index.html is the default index. Fall through to notfound if the file can't be serviced.
+# app = Rack::Static.new(notfound, :urls => [""], :root => 'public', :index => "index.html")
+staticIfFound = Rack::StaticIfFound.new(notFound, :urls => [""], :root => 'public', :index => "index.html")
+
+# Start up the application.
+run staticIfFound
+
+
