@@ -1,43 +1,25 @@
 /* the humans responsible & colophon */
 /* humanstxt.org */
 
+www.aidanns.com
 
-/* TEAM */
-  <your title>: <your name>
-  Site:
-  Twitter:
-  Location:
+This is the personal website of Aidan Nagorcka-Smith.
 
-/* THANKS */
-  Names (& URL):
+Email: aidanns@gmail.com
+Twitter: aidanns
+Skype: aidanns
+Phone: +61 (0)412 535 563
+Github: aidanns
 
-/* SITE */
-  Standards: HTML5, CSS3
-  Components: Modernizr, jQuery
-  Software:
+Tech:
 
+Lots of awesome free tech went in to this site, including, but not limited to:
 
+- Rack: http://rack.github.com/
+- HTML5Boilerplate: http://html5boilerplate.com/
+- Twitter Bootstrap: http://twitter.github.com/bootstrap/
 
-                               -o/-
-                               +oo//-
-                              :ooo+//:
-                             -ooooo///-
-                             /oooooo//:
-                            :ooooooo+//-
-                           -+oooooooo///-
-           -://////////////+oooooooooo++////////////::
-            :+ooooooooooooooooooooooooooooooooooooo+:::-
-              -/+ooooooooooooooooooooooooooooooo+/::////:-
-                -:+oooooooooooooooooooooooooooo/::///////:-
-                  --/+ooooooooooooooooooooo+::://////:-
-                     -:+ooooooooooooooooo+:://////:--
-                       /ooooooooooooooooo+//////:-
-                      -ooooooooooooooooooo////-
-                      /ooooooooo+oooooooooo//:
-                     :ooooooo+/::/+oooooooo+//-
-                    -oooooo/::///////+oooooo///-
-                    /ooo+::://////:---:/+oooo//:
-                   -o+/::///////:-      -:/+o+//-
-                   :-:///////:-            -:/://
-                     -////:-                 --//:
-                       --                       -:
+It's hosted using Heroku: http://www.heroku.com
+
+It's open-sourced on Github: https://github.com/aidanns/aidanns
+

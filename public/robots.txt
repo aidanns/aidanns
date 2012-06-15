@@ -2,4 +2,5 @@
 # http://code.google.com/web/controlcrawlindex/
 
 User-agent: *
-Disallow: /
+Disallow: /humans.txt 
+Disallow: /Resume.pdf

@@ -225,6 +225,21 @@ p {
   line-height: 27px;
 }
 
+footer > p {
+  font-size:12px;
+  line-height:22px;
+  color: #999;
+  text-align: center;
+}
+
+footer > p > a:link {
+  color: #999;
+}
+
+footer > p > a:hover {
+  color: #555;
+}
+
 li {
   font-size: 16px;
   margin-bottom:16px;
