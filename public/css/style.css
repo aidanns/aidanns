@@ -236,6 +236,14 @@ footer > p > a:link {
   color: #999;
 }
 
+footer > p > a:visited {
+  color: #999;
+}
+
+footer > p > a:hover {
+  color: #555;
+}
+
 footer > p > a:hover {
   color: #555;
 }
