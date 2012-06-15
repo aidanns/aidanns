@@ -19,11 +19,12 @@ module Rack
 
     def initialize(app, options)
       @app = app
+      @root = options[:root] || Dir.pwd
       @static = ::Rack::Static.new(lambda { [404, {}, []] }, options)
     end
 
     def can_serve(path)
-      ::File.exist? path
+      ::File.exist? @root + path
     end
 
     def call(env)
