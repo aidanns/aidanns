@@ -19,22 +19,18 @@ module Rack
 
     def initialize(app, options)
       @app = app
-      @root = options[:root] || Dir.pwd
       @static = ::Rack::Static.new(lambda { [404, {}, []] }, options)
     end
 
-    def can_serve(path)
-      ::File.file? @root + path
-    end
-
     def call(env)
-      path = env['PATH_INFO']
-      if can_serve(path)
-        @static.call(env)
+      resp = @static.call(env)
+      if resp[0] != 404
+      	return resp
       else
-        @app.call(env)
+      	@app.call(env)
       end
     end
+
   end
 end
 
